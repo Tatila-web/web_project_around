@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+.header__image-vector {
+  width: 173px;
+  height: 33px;
+  margin: 45px 907px 41px 200px;
+}
+.header__line {
+  width: 880px;
+  border: 1px solid #545454;
+  opacity: 70%;
+  margin: 0 auto 40px;
+}
