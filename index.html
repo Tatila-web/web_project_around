@@ -19,8 +19,60 @@
           src="./images/vetores/Vector_header.png"
           alt="Aroud the U.S"
         />
-        <img class="header__line" src="./images/header-Line.png" alt="Line" />
       </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            class="profile__avatar"
+            src="./images/image_Jacques.jpg"
+            alt="Foto de perfil de Jacques Cousteau"
+          />
+
+          <div class="profile__info">
+            <h1 class="profile__text-name">Jacques Cousteau</h1>
+
+            <button class="profile__open">
+              <img
+                class="profile__edit-vector"
+                src="./images/vetores/Vector_profile-info.png"
+                alt="Botão editar perfil"
+              />
+            </button>
+            <p class="profile__text-about">Explorador</p>
+          </div>
+          <button class="profile__add-button">
+            <img
+              class="profile__add-vector"
+              src="./images/vetores/Vector_addButton.png"
+              alt="Botão adicionar"
+            />
+          </button>
+          <div class="profile__popup-container">
+            <form class="profile__form">
+              <p class="profile__edit">Editar perfil</p>
+              <button class="profile__close" type="button">
+                <img
+                  class="profile__close-icon"
+                  src="./images/vetores/vector_close Icon.svg"
+                  alt="Fechar"
+                />
+              </button>
+              <input
+                class="profile__input-name"
+                type="text"
+                placeholder="Nome"
+              />
+              <input
+                class="profile__input-about"
+                type="text"
+                placeholder="Sobre mim"
+              />
+              <button class="profile__submit-form" type="submit">Salvar</button>
+            </form>
+          </div>
+        </section>
+      </main>
     </div>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
