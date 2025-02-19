@@ -92,7 +92,7 @@
 .profile__close {
   width: 40px;
   height: 40px;
-  background-color: #000000;
+  background: transparent;
   position: absolute;
   right: -40px;
   top: -45px;
@@ -103,6 +103,7 @@
 .profile__close-icon {
   width: 40px;
   height: 40px;
+  background: none;
 }
 .profile__edit {
   width: 330px;
