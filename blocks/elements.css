@@ -5,7 +5,7 @@
   grid-gap: 20px 17px;
   margin: 50px auto 67px;
 }
-.element__card {
+.elements__card {
   display: flex;
   flex-wrap: wrap;
   width: 282px;
@@ -16,18 +16,18 @@
   overflow: hidden;
   box-sizing: border-box;
 }
-.element__image {
+.elements__image {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
 }
-.element__description {
+.elements__description {
   width: 282px;
   display: flex;
   background: rgba(255, 255, 255, 1);
   margin: 0;
 }
-.element__text-description {
+.elements__text-description {
   width: 246px;
   font-weight: 900;
   font-size: 24px;
@@ -38,13 +38,13 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.element__btn-like {
+.elements__btn-like {
   background: rgba(255, 255, 255, 1);
   border: none;
   margin-right: 18px;
   align-self: center;
 }
-.element__like {
+.elements__like {
   width: 21px;
   height: 19px;
   cursor: pointer;
@@ -52,10 +52,10 @@
 
 /* hover */
 
-.element__like:hover {
+.elements__like:hover {
   opacity: 0.5;
 }
-.element__btn-like:active {
+.elements__btn-like:active {
   color: rgba(0, 0, 0);
 }
 
