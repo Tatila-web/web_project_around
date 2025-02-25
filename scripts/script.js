@@ -1,6 +1,6 @@
 // Seleciona os elementos
 let modal = document.querySelector(".profile__popup-container");
-let openButton = document.querySelector(".profile__open");
+let openButton = document.querySelector(".profile__edit-open");
 let closeButton = document.querySelector(".profile__close");
 
 // Função para abrir o modal

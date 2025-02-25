@@ -19,6 +19,7 @@
           src="./images/vetores/Vector_header.png"
           alt="Aroud the U.S"
         />
+        <div class="header__line"></div>
       </header>
       <main class="content">
         <section class="profile">
@@ -29,15 +30,16 @@
           />
 
           <div class="profile__info">
-            <h1 class="profile__text-name">Jacques Cousteau</h1>
-
-            <button class="profile__open">
-              <img
-                class="profile__edit-vector"
-                src="./images/vetores/Vector_profile-info.png"
-                alt="Botão editar perfil"
-              />
-            </button>
+            <div class="profile__info-name">
+              <h1 class="profile__text-name">Jacques Cousteau</h1>
+              <button class="profile__edit-open">
+                <img
+                  class="profile__edit-vector"
+                  src="./images/vetores/Vector_profile-info.png"
+                  alt="Botão editar perfil"
+                />
+              </button>
+            </div>
             <p class="profile__text-about">Explorador</p>
           </div>
           <button class="profile__add-button" type="button">
@@ -53,19 +55,24 @@
               <button class="profile__close" type="button">
                 <img
                   class="profile__close-icon"
-                  src="./images/vetores/vector_close Icon.svg"
+                  src="./images/vetores/Close_icon.png"
                   alt="Fechar"
                 />
               </button>
+
               <input
                 class="profile__input-name"
                 type="text"
+                name="username"
                 placeholder="Nome"
+                autocomplete="name"
               />
               <input
                 class="profile__input-about"
                 type="text"
+                name="about"
                 placeholder="Sobre mim"
+                autocomplete="off"
               />
               <button class="profile__submit-form" type="submit">Salvar</button>
             </form>
@@ -93,7 +100,7 @@
           <div class="element__card">
             <img
               class="element__image"
-              src="./images/Lago-Louise.png"
+              src="./images/Lado-louise.jpg"
               alt="Foto do Vale de Yosemite"
             />
             <div class="element__description">
@@ -147,7 +154,7 @@
           <div class="element__card">
             <img
               class="element__image"
-              src="./images/Parque Nacional.jpg"
+              src="./images/Parque-nacional.jpg"
               alt="Foto do Vale de Yosemite"
             />
             <div class="element__description">
@@ -183,6 +190,9 @@
           </div>
         </section>
       </main>
+      <footer class="footer">
+        <p class="footer__copyright">© 2025 Around The U.S.</p>
+      </footer>
     </div>
     <script src="./scripts/script.js"></script>
   </body>

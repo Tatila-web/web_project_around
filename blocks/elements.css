@@ -1,19 +1,20 @@
 .elements {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px 17px;
-  margin: 50px auto 67px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   max-width: 880px;
+  grid-gap: 20px 17px;
+  margin: 50px auto 67px;
 }
 .element__card {
   display: flex;
   flex-wrap: wrap;
   width: 282px;
   height: 361px;
+  border-radius: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .element__image {
   width: 282px;
@@ -24,7 +25,6 @@
   width: 282px;
   display: flex;
   background: rgba(255, 255, 255, 1);
-  border-radius: 0 0 10px 10px;
   margin: 0;
 }
 .element__text-description {
@@ -57,4 +57,19 @@
 }
 .element__btn-like:active {
   color: rgba(0, 0, 0);
+}
+
+@media screen and (max-width: 920px) {
+  .elements {
+    grid-template-columns: repeat(2, 282px);
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .elements {
+    grid-template-columns: 1fr;
+    max-width: 282px;
+    margin: 36px auto 50px;
+  }
 }
