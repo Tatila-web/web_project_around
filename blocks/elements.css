@@ -43,18 +43,37 @@
   border: none;
   margin-right: 18px;
   align-self: center;
-}
-.elements__like {
-  width: 21px;
-  height: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
-/* hover */
+.elements__like {
+  width: 21px;
+  height: 19px;
+}
 
+.elements__btn-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 0;
+}
+
+.elements__delete-icon {
+  width: 18px;
+  height: 19.3px;
+}
+
+/* hover */
 .elements__like:hover {
   opacity: 0.5;
 }
+
 .elements__btn-like:active {
   color: rgba(0, 0, 0);
 }
