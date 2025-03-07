@@ -231,7 +231,9 @@ addFormElement.addEventListener("submit", function (event) {
   if (titulo && imagem) {
     let novoCard = criarCartao(titulo, imagem);
     cardContainer.prepend(novoCard); // Adiciona no topo
-    addLikeButtonListeners(); // Adiciona novamente os eventos de curtir para os novos cartões
+
+    // Adiciona eventos para os novos cartões
+    addImagePopupListeners(); // Para expandir a imagem ao clicar
   }
 
   closeAddPopup(); // Fecha o popup
