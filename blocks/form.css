@@ -1,0 +1,43 @@
+/* Estilos para a mensagem de erro */
+.form__input-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+  margin: 5px 36px 0;
+  text-align: left;
+}
+
+.form__input-error_active {
+  display: block;
+}
+
+.form__input_type_error {
+  border: 2px solid red;
+}
+
+/* Estilos para o botão inativo */
+.form__submit_inactive {
+  background-color: #fff;
+  color: #bdbdbd;
+  border: 2px solid #bdbdbd;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Estilo do botão de submit desabilitado */
+.form__submit:disabled {
+  background-color: #fff;
+  color: #bdbdbd;
+  border: 2px solid #bdbdbd;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Estilo do botão de submit ativo */
+.form__submit {
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
