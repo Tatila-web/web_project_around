@@ -50,8 +50,8 @@
             />
           </button>
 
-          <div class="profile__popup-container">
-            <div class="profile__overlay"></div>
+          <div class="popup profile__popup-container">
+            <div class="profile__overlay popup__overlay"></div>
             <form class="profile__form form">
               <p class="profile__edit">Editar perfil</p>
               <button class="profile__close" type="button">
@@ -99,9 +99,9 @@
 
           </div>
 
-          <div class="popup__cards popup__opned">
+          <div class="popup popup__cards">
             <div class="popup__overlay"></div>
-            <form class="popup__form form">
+            <form class="form popup__form">
               <p class="popup__text">Novo local</p>
               <button class="popup__close" type="button">
                 <img
@@ -150,6 +150,7 @@
 
        <!-- Popup de imagem -->
 <div id="popupImageContainer" class="popup-image popup-image__hidden">
+  <div class="popup__overlay"></div>
   <div class="popup-image__content">
     <button id="popupCloseButton" class="popup-image__close">
       &times;
@@ -163,8 +164,32 @@
     <p id="popupImageName" class="popup-image__title"></p>
   </div>
 </div>
-    <script src="scripts/popup.js"></script>
-    <script src="scripts/validate.js"></script>
-    <script src="./scripts/index.js"></script>
+
+<!-- Template do card -->
+<template id="card-template">
+  <div class="elements__card">
+    <img class="elements__image" src="" alt="Imagem do lugar" />
+    <div class="elements__description">
+      <p class="elements__text-description"></p>
+      <button class="elements__btn-like" type="button">
+        <img
+          class="elements__like"
+          src="./images/vetores/Vector_like.png"
+          alt="Curtir"
+        />
+      </button>
+      <button class="elements__btn-delete" type="button">
+        <img class="elements__delete-icon"
+          src="./images/vetores/Vector_delete.png"
+          alt="Excluir"
+        />
+      </button>
+    </div>
+  </div>
+</template>
+
+
+<script type="module" src="./scripts/index.js"></script>
+
   </body>
 </html>
