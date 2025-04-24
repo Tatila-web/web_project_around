@@ -6,24 +6,24 @@ import { openModal, closeModal } from "./utils.js";
 // Dados iniciais dos cards
 const initialCards = [
   {
-    name: "Field, BC, Canadá",
-    link: "https://images.pexels.com/photos/1598075/pexels-photo-1598075.jpeg",
+    name: "Rio Amazonas",
+    link: "https://images.unsplash.com/photo-1663637473190-4b4310da8659?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+    name: "Àrvore de flores",
+    link: "https://images.unsplash.com/photo-1642079003624-5a12dd46837b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Flores em sapatos",
     link: "https://images.pexels.com/photos/21620213/pexels-photo-21620213/free-photo-of-flowers-in-shoes-hanging-on-tree.jpeg",
   },
   {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+    name: "Casal de Araras",
+    link: "https://images.unsplash.com/photo-1606815487684-9ca5b69c98a7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    name: "Parque Nacional da Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+    name: "Beija-flor",
+    link: "https://images.unsplash.com/photo-1636660599781-af866eb7556c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Hermerocallis amarelo",
