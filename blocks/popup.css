@@ -21,9 +21,7 @@
   background: rgba(0, 0, 0, 0.5);
   display: block;
 }
-.popup__opned {
-  display: block;
-}
+
 .popup__cards {
   position: fixed;
   top: 0;
@@ -37,8 +35,9 @@
   box-sizing: border-box;
   z-index: 1;
 }
-.popup__opned {
-  display: none;
+
+.popup_opened {
+  display: flex;
 }
 .popup__form {
   position: relative;
