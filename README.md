@@ -3,65 +3,77 @@
 Descrição
 Este projeto, chamado "EUA Afora", é uma aplicação interativa que permite aos usuários visualizar cartões com imagens de diversos lugares, como se fossem um "álbum de viagens". Os cartões podem ser adicionados ou removidos, e os usuários também podem editar seu perfil, alterando o nome e a descrição. A validação de formulários e a manipulação de popups são implementadas para garantir uma boa experiência de usuário.
 
-# Funcionalidades
+# ✨ Funcionalidades
 
-1. Exibição de Cartões de Imagens
+- 🖼️ 1. Exibição de Cartões
 
-- O projeto exibe cartões com imagens e títulos representando diferentes lugares ao redor do mundo.
+Os cartões exibem imagens com títulos representando locais diversos.
 
-- Os cartões possuem funcionalidades de curtir e excluir, além de abrir uma imagem em tamanho maior ao clicar na foto.
+É possível curtir/descurtir os cartões (ícone de like).
 
-2. Adicionar Novos Cartões
+Ao clicar na imagem, ela é exibida em tamanho ampliado (popup).
 
-- É possível adicionar novos cartões com imagem e título através de um formulário de adição de cartão.
+Os cartões podem ser excluídos.
 
-- O formulário de adição de cartão inclui validação para garantir que os dados inseridos sejam válidos.
+- ➕ 2. Adição de Novos Cartões
 
-3. Edição de Perfil-
-   Os usuários podem editar seu nome e descrição através de um formulário de edição de perfil.
+Formulário para adicionar novos cartões com nome e link da imagem.
 
-- O perfil exibe o nome e a descrição do usuário de forma dinâmica.
+Validação de campos em tempo real garante entradas válidas.
 
-4. Validação de Formulários
+Novo cartão é renderizado automaticamente na interface.
 
-- A validação de formulários é feita com JavaScript, garantindo que os campos sejam preenchidos corretamente.
+- 🧑‍💼 3. Edição de Perfil
 
-- Utiliza a API de validity do HTML5 para validar entradas de texto.
+Os usuários podem alterar dinamicamente seu nome e descrição.
 
-- A validação é feita em tempo real, e o botão de envio do formulário só fica habilitado quando todos os campos estão corretamente preenchidos.
+Informações são refletidas imediatamente no perfil após envio do formulário.
 
-5. Popups
+- ✅ 4. Validação de Formulários
 
-- Há popups para editar o perfil e adicionar novos cartões, que são controlados através de eventos de abrir e fechar.
+Campos obrigatórios são validados com JavaScript moderno (API ValidityState).
 
-- O fechamento dos popups é feito ao clicar em um botão de fechar ou ao enviar o formulário.
+Validação acontece em tempo real com feedback visual.
 
-# Estrutura de Arquivos
+O botão de envio só é ativado quando todos os campos estão corretos.
 
-- index.html: O arquivo principal HTML que contém a estrutura da página e os templates dos cartões.
+- 🪟 5. Manipulação de Popups
 
-- index.css: Arquivo de estilos para toda a aplicação.
+Popups para edição de perfil, adição de cartão e visualização de imagem.
 
-- scripts/: Pasta contendo os arquivos JavaScript.
+Popups fecham ao clicar no botão "fechar", pressionar a tecla ESC ou clicar fora (overlay).
 
-- Card.js: Classe responsável por criar e manipular os cartões.
+Inputs dos formulários são limpos automaticamente ao abrir/fechar.
 
-- FormValidator.js: Classe responsável pela validação dos formulários.
+# 🗂️ Estrutura de Arquivos
 
-- utils.js: Funções utilitárias para abrir e fechar popups.
+📁 projeto-eua-afora/
+├── index.html # Estrutura principal da aplicação
+├── index.css # Estilos globais e dos componentes
+├── 📁 scripts/ # Código JavaScript modular
+│ ├── index.js # Arquivo principal que integra os módulos
+│ ├── Card.js # Classe Card (criação e lógica dos cartões)
+│ ├── Section.js # Classe Section (renderização de múltiplos cards)
+│ ├── UserInfo.js # Classe UserInfo (informações do perfil)
+│ ├── Popup.js # Classe base para popups
+│ ├── PopupWithImage.js # Subclasse para exibição de imagem ampliada
+│ ├── PopupWithForm.js # Subclasse para popups com formulário
+│ ├── FormValidator.js # Classe de validação de formulários
+│ ├── config.js # Configurações da validação (seletor, classes, etc.)
+│ └── utils.js # Funções utilitárias (abrir/fechar popups etc.)
 
-- config.js: Contém a configuração de validação de formulário.
+# 🛠️ Tecnologias Utilizadas
 
-- index.js: Arquivo principal do JavaScript, que importa e utiliza as outras classes para gerar o conteúdo dinâmico da página.
+- HTML5: Estrutura da página e templates reutilizáveis.
 
-# Tecnologias Utilizadas
+- CSS3: Estilização responsiva e interativa da interface.
 
-- HTML5: Para a estruturação da página e templates dos cartões.
+- JavaScript ES6+: Manipulação de DOM, lógica de interação e modularização.
 
-- CSS3: Para estilização da página e componentes.
+- POO (Programação Orientada a Objetos): Componentização e organização de funcionalidades com classes reutilizáveis.
 
-- JavaScript (ES6+): Para interatividade, manipulação de DOM e validação de formulários.
+🌐 Hospedagem
 
-- Utiliza POO com classes Card e FormValidator.
+- Você pode acessar a versão online do projeto neste link:
 
-- Validação de formulários com a API ValidityState e eventos de input.
+🔗 https://tatila-web.github.io/web_project_around/
