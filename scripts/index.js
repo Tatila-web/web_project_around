@@ -77,10 +77,12 @@ const profilePopup = new PopupWithForm(
 );
 profilePopup.setEventListeners();
 
-// Abrir popup de editar perfil - limpa formulário e validação
+// Abrir popup de editar perfil - preenchimento com getUserInfo
 const openButton = document.querySelector(".profile__edit-open");
 openButton.addEventListener("click", () => {
-  profilePopup._form.reset(); // Limpa inputs (deixa vazio)
+  const currentUser = userInfo.getUserInfo();
+  document.querySelector("#profile-name").value = currentUser.name;
+  document.querySelector("#profile-about").value = currentUser.about;
   editFormValidator.resetValidation(); // Limpa erros e habilita botão
   profilePopup.open();
 });
