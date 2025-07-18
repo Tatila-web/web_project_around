@@ -12,17 +12,25 @@ export class Card {
     this._link = data.link;
     this._id = data._id;
     this._likes = Array.isArray(data.likes) ? data.likes : [];
+
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
     this._handleLike = handleLike;
     this._handleDelete = handleDelete;
     this._userId = userId;
     this._openConfirmPopup = openConfirmPopup;
-    this._isLiked = this._likes.some((user) => user._id === userId);
+
+    // Usa isLiked diretamente se a API fornecer
+    if (typeof data.isLiked === "boolean") {
+      this._isLiked = data.isLiked;
+    } else {
+      // Caso contrário, verifica se o usuário curtiu pelo array de likes
+      this._isLiked = this._likes.some((user) => user._id === userId);
+    }
 
     console.log(
       `Card "${this._name}" criado. userId=${userId}, isLiked=${this._isLiked}`,
-      this._likes
+      data
     );
   }
 
@@ -69,16 +77,22 @@ export class Card {
       if (!this._id) return;
 
       const likeAction = !this._isLiked;
+
       this._handleLike(this._id, likeAction)
         .then((updatedCard) => {
+          // Se a API retorna .likes (lista), atualiza com base no _id do user
           if (Array.isArray(updatedCard.likes)) {
             this._likes = updatedCard.likes;
             this._isLiked = this._likes.some(
               (user) => user._id === this._userId
             );
-          } else if (typeof updatedCard.isLiked === "boolean") {
+          }
+
+          // Se a API retorna .isLiked diretamente
+          if (typeof updatedCard.isLiked === "boolean") {
             this._isLiked = updatedCard.isLiked;
           }
+
           this._updateLikeVisual();
         })
         .catch((err) => console.error("Erro ao curtir/descurtir:", err));
