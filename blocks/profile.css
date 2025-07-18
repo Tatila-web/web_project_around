@@ -10,8 +10,10 @@
 
 .profile__avatar {
   max-width: 120px;
+  height: 120px;
   margin-right: 30px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile__info {
@@ -176,6 +178,42 @@
 
 .profile__submit-form:hover {
   background: rgba(0, 0, 0, 0.8);
+}
+/* CSS COMPLEMENTAR para botão editar avatar no hover */
+
+.profile__avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile__avatar-edit-button {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5); /* overlay escuro atrás do ícone */
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__avatar-edit-icon {
+  width: 24px;
+  height: 24px;
+  background: none; /* fundo transparente */
+  filter: brightness(0) invert(1); /* ícone branco */
+}
+
+.profile__avatar-container:hover .profile__avatar-edit-button {
+  opacity: 1;
 }
 
 @media screen and (max-width: 920px) {

@@ -173,6 +173,60 @@
 .popup-image__hidden {
   display: none;
 }
+.popup__container {
+  position: relative;
+  width: 430px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.popup_confirm {
+  position: fixed;
+  inset: 0;
+  display: none; /* popup começa oculto */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.popup_confirm.popup_opened {
+  display: flex; /* popup abre quando recebe essa classe */
+}
+
+.popup_confirm__submit-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* Estilos popup Avatar*/
+
+.popup_avatar {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.popup_avatar.popup_opened {
+  display: flex;
+}
+.popup__submit-form_inactive {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.popup__input_type_error {
+  border-color: red;
+}
+
+.form__input-error_active {
+  display: block; /* ou inline, conforme seu estilo */
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
 
 @media screen and (max-width: 640px) {
   .popup__add-button {

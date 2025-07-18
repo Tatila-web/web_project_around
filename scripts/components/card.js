@@ -1,18 +1,36 @@
 export class Card {
-  constructor(name, link, templateSelector, handleCardClick) {
-    this._name = name;
-    this._link = link;
+  constructor(
+    data,
+    templateSelector,
+    handleCardClick,
+    handleLike,
+    handleDelete,
+    userId,
+    openConfirmPopup
+  ) {
+    this._name = data.name;
+    this._link = data.link;
+    this._id = data._id;
+    this._likes = Array.isArray(data.likes) ? data.likes : [];
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
+    this._handleLike = handleLike;
+    this._handleDelete = handleDelete;
+    this._userId = userId;
+    this._openConfirmPopup = openConfirmPopup;
+    this._isLiked = this._likes.some((user) => user._id === userId);
+
+    console.log(
+      `Card "${this._name}" criado. userId=${userId}, isLiked=${this._isLiked}`,
+      this._likes
+    );
   }
 
   _getTemplate() {
-    const cardElement = document
+    return document
       .querySelector(this._templateSelector)
       .content.querySelector(".elements__card")
       .cloneNode(true);
-
-    return cardElement;
   }
 
   generateCard() {
@@ -23,34 +41,58 @@ export class Card {
     );
     this._likeButton = this._element.querySelector(".elements__btn-like");
     this._deleteButton = this._element.querySelector(".elements__btn-delete");
+    this._likeIcon = this._likeButton.querySelector(".elements__like");
 
     this._textElement.textContent = this._name;
     this._imageElement.src = this._link;
     this._imageElement.alt = this._name;
 
+    this._updateLikeVisual();
     this._setEventListeners();
 
     return this._element;
   }
 
+  _updateLikeVisual() {
+    this._likeButton.classList.toggle(
+      "elements__btn-like_active",
+      this._isLiked
+    );
+    this._likeIcon.src = this._isLiked
+      ? "./images/vetores/Vector_like_black.png"
+      : "./images/vetores/Vector_like.png";
+    this._likeIcon.alt = this._isLiked ? "Descurtir" : "Curtir";
+  }
+
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      const likeIcon = this._likeButton.querySelector(".elements__like");
-      const isLiked = this._likeButton.classList.toggle(
-        "elements__btn-like_active"
-      );
+      if (!this._id) return;
 
-      // Troca a imagem dependendo do estado do like
-      likeIcon.src = isLiked
-        ? "./images/vetores/Vector_like_black.png"
-        : "./images/vetores/Vector_like.png";
-
-      likeIcon.alt = isLiked ? "Descurtir" : "Curtir";
+      const likeAction = !this._isLiked;
+      this._handleLike(this._id, likeAction)
+        .then((updatedCard) => {
+          if (Array.isArray(updatedCard.likes)) {
+            this._likes = updatedCard.likes;
+            this._isLiked = this._likes.some(
+              (user) => user._id === this._userId
+            );
+          } else if (typeof updatedCard.isLiked === "boolean") {
+            this._isLiked = updatedCard.isLiked;
+          }
+          this._updateLikeVisual();
+        })
+        .catch((err) => console.error("Erro ao curtir/descurtir:", err));
     });
 
-    this._deleteButton.addEventListener("click", () => {
-      this._element.remove();
-    });
+    if (this._deleteButton) {
+      this._deleteButton.addEventListener("click", () => {
+        if (this._openConfirmPopup) {
+          this._openConfirmPopup(() => {
+            this._handleDelete(this._id, this._element);
+          });
+        }
+      });
+    }
 
     this._imageElement.addEventListener("click", () => {
       this._handleCardClick(this._name, this._link);

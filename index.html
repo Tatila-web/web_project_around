@@ -23,11 +23,24 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            class="profile__avatar"
-            src="./images/image_Jacques.jpg"
-            alt="Foto de perfil de Jacques Cousteau"
-          />
+          <div class="profile__avatar-container">
+            <img
+              class="profile__avatar"
+              src="./images/image_Jacques.jpg"
+              alt="Foto de perfil de Jacques Cousteau"
+            />
+            <button
+              class="profile__avatar-edit-button"
+              type="button"
+              aria-label="Editar foto do perfil"
+            >
+              <img
+                class="profile__avatar-edit-icon"
+                src="./images/vetores/Vector_profile-info.png"
+                alt="Ícone editar foto do perfil"
+              />
+            </button>
+          </div>
 
           <div class="profile__info">
             <div class="profile__info-name">
@@ -42,6 +55,7 @@
             </div>
             <p class="profile__text-about">Explorador</p>
           </div>
+
           <button class="popup__add-button" type="button">
             <img
               class="popup__add-icon"
@@ -164,6 +178,52 @@
           </button>
           <img id="popupImage" class="popup-image__img" src="" alt="" />
           <p id="popupImageName" class="popup-image__title"></p>
+        </div>
+      </div>
+
+      <!-- Popup de confirmação de exclusão -->
+      <div class="popup popup_confirm" id="popupDeleteCard">
+        <div class="popup__overlay"></div>
+        <div class="popup__container">
+          <button class="popup__close" type="button" aria-label="Fechar popup">
+            <img
+              src="./images/vetores/Close_icon.png"
+              class="popup__close-icon"
+              alt="Fechar"
+            />
+          </button>
+          <h2 class="popup__text">Tem certeza?</h2>
+          <form name="confirm-delete">
+            <button type="submit" class="popup__submit-form">Sim</button>
+          </form>
+        </div>
+      </div>
+      <!-- Popup editar avatar -->
+      <div class="popup popup_avatar" id="popupAvatar">
+        <div class="popup__overlay"></div>
+        <div class="popup__container">
+          <button class="popup__close" type="button" aria-label="Fechar popup">
+            <img
+              src="./images/vetores/Close_icon.png"
+              class="popup__close-icon"
+              alt="Fechar"
+            />
+          </button>
+          <form class="popup__form form" name="form-avatar" novalidate>
+            <p class="popup__text">Alterar foto do perfil</p>
+            <input
+              id="avatar-link"
+              type="url"
+              name="avatar"
+              class="popup__input popup__input-title form__input"
+              placeholder="Link da nova foto"
+              required
+            />
+            <span class="form__input-error" id="avatar-link-error"></span>
+            <button type="submit" class="popup__submit-form form__submit">
+              Salvar
+            </button>
+          </form>
         </div>
       </div>
 
