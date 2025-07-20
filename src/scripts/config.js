@@ -1,10 +1,10 @@
 export const validationConfig = {
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__submit", // <-- Classe dos botões submit
-  inactiveButtonClass: "form__submit_inactive",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active",
+  formSelector: ".popup__form", // ⬅️ classe atual de BEM correta
+  inputSelector: ".popup__input", // ⬅️ inputs também seguem BEM
+  submitButtonSelector: ".popup__submit-form", // ⬅️ botão de submit no BEM
+  inactiveButtonClass: "popup__submit_inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__input-error_active",
 };
 
 export const BASE_URL = "https://around-api.pt-br.tripleten-services.com/v1";

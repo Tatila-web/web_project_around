@@ -14,61 +14,59 @@ class Api {
     return Promise.reject(`Erro: ${res.status}`);
   }
 
-  getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
+  // Novo método privado que unifica fetch + opções + resposta
+  _makeRequest(endpoint, options = {}) {
+    return fetch(`${this._baseUrl}${endpoint}`, {
       headers: this._headers,
+      ...options,
     }).then(this._checkResponse);
+  }
+
+  getInitialCards() {
+    return this._makeRequest("/cards");
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
-    }).then(this._checkResponse);
+    return this._makeRequest("/users/me");
   }
 
   addCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._makeRequest("/cards", {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify({ name, link }),
-    }).then(this._checkResponse);
+    });
   }
 
   setUserInfo({ name, about }) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._makeRequest("/users/me", {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({ name, about }),
-    }).then(this._checkResponse);
+    });
   }
 
   updateAvatar(avatarUrl) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+    return this._makeRequest("/users/me/avatar", {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({ avatar: avatarUrl }),
-    }).then(this._checkResponse);
+    });
   }
 
   likeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return this._makeRequest(`/cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   unlikeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return this._makeRequest(`/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 
   deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+    return this._makeRequest(`/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
+    });
   }
 }
 

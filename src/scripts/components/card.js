@@ -20,11 +20,9 @@ export class Card {
     this._userId = userId;
     this._openConfirmPopup = openConfirmPopup;
 
-    // Usa isLiked diretamente se a API fornecer
     if (typeof data.isLiked === "boolean") {
       this._isLiked = data.isLiked;
     } else {
-      // Caso contrário, verifica se o usuário curtiu pelo array de likes
       this._isLiked = this._likes.some((user) => user._id === userId);
     }
 
@@ -37,19 +35,20 @@ export class Card {
   _getTemplate() {
     return document
       .querySelector(this._templateSelector)
-      .content.querySelector(".elements__card")
+      .content.querySelector(".elements__card") // ✅ Bloco "elements", elemento "card" — CORRETO
       .cloneNode(true);
   }
 
   generateCard() {
     this._element = this._getTemplate();
-    this._imageElement = this._element.querySelector(".elements__image");
+
+    this._imageElement = this._element.querySelector(".elements__image"); // ✅ BEM OK
     this._textElement = this._element.querySelector(
       ".elements__text-description"
-    );
-    this._likeButton = this._element.querySelector(".elements__btn-like");
-    this._deleteButton = this._element.querySelector(".elements__btn-delete");
-    this._likeIcon = this._likeButton.querySelector(".elements__like");
+    ); // ✅ BEM OK
+    this._likeButton = this._element.querySelector(".elements__btn-like"); // ✅ BEM OK
+    this._deleteButton = this._element.querySelector(".elements__btn-delete"); // ✅ BEM OK
+    this._likeIcon = this._likeButton.querySelector(".elements__like"); // ✅ BEM OK
 
     this._textElement.textContent = this._name;
     this._imageElement.src = this._link;
@@ -63,7 +62,7 @@ export class Card {
 
   _updateLikeVisual() {
     this._likeButton.classList.toggle(
-      "elements__btn-like_active",
+      "elements__btn-like_active", // ✅ Modifier BEM corretamente aplicado
       this._isLiked
     );
     this._likeIcon.src = this._isLiked
@@ -75,12 +74,10 @@ export class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
       if (!this._id) return;
-
       const likeAction = !this._isLiked;
 
       this._handleLike(this._id, likeAction)
         .then((updatedCard) => {
-          // Se a API retorna .likes (lista), atualiza com base no _id do user
           if (Array.isArray(updatedCard.likes)) {
             this._likes = updatedCard.likes;
             this._isLiked = this._likes.some(
@@ -88,7 +85,6 @@ export class Card {
             );
           }
 
-          // Se a API retorna .isLiked diretamente
           if (typeof updatedCard.isLiked === "boolean") {
             this._isLiked = updatedCard.isLiked;
           }

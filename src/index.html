@@ -56,105 +56,13 @@
             <p class="profile__text-about">Explorador</p>
           </div>
 
-          <button class="popup__add-button" type="button">
+          <button class="profile__add-button" type="button">
             <img
-              class="popup__add-icon"
+              class="profile__add-icon"
               src="./images/vetores/Vector_addButton.png"
               alt="Botão adicionar"
             />
           </button>
-
-          <div class="popup profile__popup-container">
-            <div class="profile__overlay popup__overlay"></div>
-            <form class="profile__form form">
-              <p class="profile__edit">Editar perfil</p>
-              <button class="popup__close profile__close" type="button">
-                <img
-                  class="profile__close-icon"
-                  src="./images/vetores/Close_icon.png"
-                  alt="Fechar"
-                />
-              </button>
-
-              <input
-                id="profile-name"
-                class="profile__input-name form__input"
-                type="text"
-                name="username"
-                placeholder="Nome"
-                autocomplete="name"
-                required
-                minlength="2"
-                maxlength="40"
-              />
-              <span class="form__input-error" id="profile-name-error"></span>
-
-              <input
-                id="profile-about"
-                class="profile__input-about form__input"
-                type="text"
-                name="about"
-                placeholder="Sobre mim"
-                autocomplete="off"
-                required
-                minlength="2"
-                maxlength="200"
-              />
-              <span class="form__input-error" id="profile-about-error"></span>
-
-              <button
-                class="profile__submit-form form__submit form__submit_inactive"
-                type="submit"
-                disabled
-              >
-                Salvar
-              </button>
-            </form>
-          </div>
-
-          <div class="popup popup__cards">
-            <div class="popup__overlay"></div>
-            <form class="form popup__form">
-              <p class="popup__text">Novo local</p>
-              <button class="popup__close" type="button">
-                <img
-                  class="popup__close-icon"
-                  src="./images/vetores/Close_icon.png"
-                  alt="Fechar"
-                />
-              </button>
-
-              <input
-                id="place-title"
-                class="popup__input-title form__input"
-                type="text"
-                name="title"
-                placeholder="Título"
-                required
-                minlength="2"
-                maxlength="30"
-              />
-              <span class="form__input-error" id="place-title-error"></span>
-
-              <input
-                id="place-link"
-                class="popup__input-link form__input"
-                type="url"
-                name="link"
-                placeholder="Link da imagem"
-                required
-              />
-              <span class="form__input-error" id="place-link-error"></span>
-
-              <button
-                class="popup__submit-form form__submit form__submit_inactive"
-                type="submit"
-                disabled
-              >
-                Criar
-              </button>
-            </form>
-          </div>
         </section>
         <section class="elements"></section>
       </main>
@@ -169,7 +77,109 @@
         </a>
       </footer>
 
+      <!-- Popup Editar Perfil -->
+      <div class="popup popup_type_profile">
+        <!-- Alterado aqui: de popup_container-profile para popup_type_profile -->
+        <div class="popup__overlay"></div>
+        <div class="popup__container">
+          <form class="popup__form" name="edit-profile">
+            <p class="popup__profile-edit">Editar perfil</p>
+            <button class="popup__close" type="button">
+              <img
+                class="popup__close-icon"
+                src="./images/vetores/Close_icon.png"
+                alt="Fechar"
+              />
+            </button>
+
+            <input
+              id="profile-name"
+              class="popup__input-name popup__input"
+              type="text"
+              name="username"
+              placeholder="Nome"
+              autocomplete="name"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="popup__input-error" id="profile-name-error"></span>
+
+            <input
+              id="profile-about"
+              class="popup__input-about popup__input"
+              type="text"
+              name="about"
+              placeholder="Sobre mim"
+              autocomplete="off"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="popup__input-error" id="profile-about-error"></span>
+
+            <button
+              class="popup__submit-form popup__submit_inactive"
+              type="submit"
+              disabled
+            >
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Popup Adicionar nova card -->
+
+      <div class="popup popup_type_new-card">
+        <!-- Alterado aqui: de popup_new-card para popup_type_new-card -->
+        <div class="popup__overlay"></div>
+        <div class="popup__container">
+          <form class="popup__form" name="add-place">
+            <p class="popup__text">Novo local</p>
+            <button class="popup__close" type="button">
+              <img
+                class="popup__close-icon"
+                src="./images/vetores/Close_icon.png"
+                alt="Fechar"
+              />
+            </button>
+
+            <input
+              id="place-title"
+              class="popup__input-title popup__input"
+              type="text"
+              name="title"
+              placeholder="Título"
+              required
+              minlength="2"
+              maxlength="30"
+            />
+            <span class="popup__input-error" id="place-title-error"></span>
+
+            <input
+              id="place-link"
+              class="popup__input-link popup__input"
+              type="url"
+              name="link"
+              placeholder="Link da imagem"
+              required
+            />
+            <span class="popup__input-error" id="place-link-error"></span>
+
+            <button
+              class="popup__submit-form popup__submit popup__submit_inactive"
+              type="submit"
+              disabled
+            >
+              Criar
+            </button>
+          </form>
+        </div>
+      </div>
+
       <!-- Popup de imagem -->
+
       <div id="popupImageContainer" class="popup-image popup-image__hidden">
         <div class="popup__overlay"></div>
         <div class="popup-image__content">
@@ -182,7 +192,8 @@
       </div>
 
       <!-- Popup de confirmação de exclusão -->
-      <div class="popup popup_confirm" id="popupDeleteCard">
+      <div class="popup popup_type_confirm" id="popupDeleteCard">
+        <!-- Alterado aqui: de popup_confirm para popup_type_confirm -->
         <div class="popup__overlay"></div>
         <div class="popup__container">
           <button class="popup__close" type="button" aria-label="Fechar popup">
@@ -194,14 +205,21 @@
           </button>
           <h2 class="popup__text">Tem certeza?</h2>
           <form name="confirm-delete">
-            <button type="submit" class="popup__submit-form">Sim</button>
+            <button
+              type="submit"
+              class="popup__submit-form popup__confirm-submit-button"
+            >
+              Sim
+            </button>
+            <!-- Alterado aqui: adicionada classe popup__confirm-submit-button -->
           </form>
         </div>
       </div>
+
       <!-- Popup editar avatar -->
-      <div class="popup popup_avatar" id="popupAvatar">
+      <div class="popup popup_type_avatar" id="popupAvatar">
         <div class="popup__overlay"></div>
-        <div class="popup__container popup__form">
+        <div class="popup__container">
           <button class="popup__close" type="button" aria-label="Fechar popup">
             <img
               src="./images/vetores/Close_icon.png"
@@ -209,20 +227,18 @@
               alt="Fechar"
             />
           </button>
-          <form class="popup__form form" name="form-avatar" novalidate>
+          <form class="popup__form" name="form-avatar" novalidate>
             <p class="popup__text">Alterar a foto do perfil</p>
             <input
               id="avatar-link"
               type="url"
               name="avatar"
-              class="popup__input popup__input-title form__input"
+              class="popup__input popup__input-title"
               placeholder="Link da nova foto"
               required
             />
-            <span class="form__input-error" id="avatar-link-error"></span>
-            <button type="submit" class="popup__submit-form form__submit">
-              Salvar
-            </button>
+            <span class="popup__input-error" id="avatar-link-error"></span>
+            <button type="submit" class="popup__submit-form">Salvar</button>
           </form>
         </div>
       </div>

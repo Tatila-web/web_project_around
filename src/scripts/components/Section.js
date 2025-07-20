@@ -1,6 +1,6 @@
 export class Section {
   constructor({ renderer }, containerSelector) {
-    this._renderer = renderer;
+    this._renderer = renderer; // função que cria e insere o item
     this._container = document.querySelector(containerSelector);
     this._items = [];
   }
@@ -19,6 +19,6 @@ export class Section {
   }
 
   addItem(element) {
-    this._container.append(element);
+    this._container.prepend(element);
   }
 }
